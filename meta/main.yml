@@ -1,0 +1,18 @@
+galaxy_info:
+  author: thiagogomesverissimo
+  description: build samba from source
+  company: USPdev
+
+  license: "license (BSD, MIT)"
+
+  min_ansible_version: 2.0
+  github_branch: master
+
+  platforms:
+   - name: Debian
+     versions:
+     - all
+  galaxy_tags:
+    - samba
+
+dependencies: []

@@ -1,0 +1,11 @@
+- name: samba no PATH
+  lineinfile:
+    path: /etc/profile
+    line: "export PATH={{ samba_path }}/bin:{{ samba_path }}/sbin:$PATH"
+    create: yes
+
+- name: samba no PATH do root
+  lineinfile:
+    path: /root/.bashrc
+    line: "export PATH={{ samba_path }}/bin:{{ samba_path }}/sbin:$PATH"
+    create: yes

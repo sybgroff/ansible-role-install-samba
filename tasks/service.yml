@@ -1,0 +1,10 @@
+---
+- name: service
+  copy: 
+    src: templates/samba.service
+    dest: /etc/systemd/system/samba.service
+
+- name: enable service samba
+  systemd:
+    name: samba
+    enabled: yes
