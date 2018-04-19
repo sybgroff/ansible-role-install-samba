@@ -1,7 +1,7 @@
 Ansible Role: compile-samba
 ===========================
 
-This role does 3 task:
+This role executes tasks:
 
  - Build Samba from Source as recommended by [saba wiki](https://wiki.samba.org/index.php/Build_Samba_from_Source), for now, to Ubuntu Xenial
  - Create a service to start, stop and restart samba
