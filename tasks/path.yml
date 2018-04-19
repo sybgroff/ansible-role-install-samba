@@ -1,11 +1,19 @@
-- name: samba no PATH
-  lineinfile:
-    path: /etc/profile
-    line: "export PATH={{ samba_path }}/bin:{{ samba_path }}/sbin:$PATH"
-    create: yes
+- name: samba binary list
+  shell: "ls"
+  args:
+    chdir: "/usr/local/samba/bin"
+  register: results
+  tags:
+    - ls
 
-- name: samba no PATH do root
-  lineinfile:
-    path: /root/.bashrc
-    line: "export PATH={{ samba_path }}/bin:{{ samba_path }}/sbin:$PATH"
-    create: yes
+- name: adds link to samba binaries
+  file:
+    src: '/usr/local/samba/bin/{{ item }}'
+    dest: '/usr/local/sbin/{{ item }}'
+    owner: root
+    group: root
+    state: link
+  with_items:
+    - "{{ results.stdout_lines }}"
+  tags:
+    - link
