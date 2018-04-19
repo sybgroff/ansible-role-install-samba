@@ -9,9 +9,9 @@ galaxy_info:
   github_branch: master
 
   platforms:
-   - name: Debian
+   - name: ubuntu
      versions:
-     - all
+     - xenial
   galaxy_tags:
     - samba
 

@@ -1,1 +1,4 @@
 ---
+samba_version: samba-4.4.8
+samba_path: /usr/local/samba
+download: /opt
