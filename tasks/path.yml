@@ -3,6 +3,8 @@
   args:
     chdir: "/usr/local/samba/bin"
   register: results
+  tags:
+    - ls
 
 - name: adds link to samba binaries
   file:
@@ -13,3 +15,5 @@
     state: link
   with_items:
     - "{{ results.stdout_lines }}"
+  tags:
+    - link
