@@ -1,11 +1,10 @@
 ---
-- name: instalação das dependendências do samba 4
+- name: packages suggested by samba.org
   apt:
     name: "{{item}}"
     state: latest
     update_cache: yes
   with_items:
-    # oficial from samba.org
     - acl
     - attr
     - autoconf
@@ -64,15 +63,19 @@
 - name: download samba
   unarchive:
     src: "https://download.samba.org/pub/samba/stable/{{ samba_version }}.tar.gz"
-    dest: "{{ download }}"
-    remote_src: yes   
+    dest: "{{ samba_download }}"
+    remote_src: yes
 
 - name: configure samba
-  shell: "cd {{ download }}/{{ samba_version }} && ./configure --enable-debug --enable-selftest --with-systemd"
+  shell: "./configure --prefix={{samba_prefix}} --enable-debug --enable-selftest --with-systemd"
+  args:
+    chdir: "{{ samba_download }}/{{ samba_version }}"
 
 - name: make
   make:
-    chdir: "{{ download }}/{{ samba_version }}"
+    chdir: "{{ samba_download }}/{{ samba_version }}"
 
 - name: make install
-  shell: "cd {{ download }}/{{ samba_version }} && make install"
+  shell: "make install"
+  args:
+    chdir: "{{ samba_download }}/{{ samba_version }}"
