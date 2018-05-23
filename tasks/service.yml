@@ -1,7 +1,7 @@
 ---
 # https://wiki.samba.org/index.php/Managing_the_Samba_AD_DC_Service_Using_Systemd
 - name: service
-  copy: 
+  template: 
     src: samba.service
     dest: /etc/systemd/system/samba-ad-dc.service
   tags:
