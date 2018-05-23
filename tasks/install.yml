@@ -67,7 +67,7 @@
     remote_src: yes
 
 - name: configure samba
-  shell: "./configure --prefix={{samba_prefix}} --enable-debug --enable-selftest --with-systemd"
+  shell: "./configure --prefix={{samba_prefix}} --sbindir=/sbin/ --sysconfdir=/etc/samba/ --mandir=/usr/share/man/ --with-systemd"
   args:
     chdir: "{{ samba_download }}/{{ samba_version }}"
 
