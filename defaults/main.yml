@@ -1,4 +1,6 @@
 ---
 samba_version: "samba-4.8.2"
 samba_prefix: "/usr/local/samba"
+samba_bin: "/bin"
+samba_sbin: "/sbin"
 samba_download: "/opt"
