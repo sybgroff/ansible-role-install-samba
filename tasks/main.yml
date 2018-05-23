@@ -3,6 +3,7 @@
   apt:
     update_cache: yes
 
-- import_tasks: install.yml
-- import_tasks: path.yml
+- import_tasks: dependencies.yml
+- import_tasks: build.yml
+#- import_tasks: path.yml # no more necessary
 - import_tasks: service.yml
