@@ -2,10 +2,15 @@
 # https://wiki.samba.org/index.php/Managing_the_Samba_AD_DC_Service_Using_Systemd
 - name: service
   copy: 
-    src: templates/samba.service
+    src: samba.service
     dest: /etc/systemd/system/samba-ad-dc.service
+  tags:
+    - samba_service
+    
 
 - name: enable service samba
   systemd:
     name: samba-ad-dc
     enabled: yes
+  tags:
+    - samba_service
