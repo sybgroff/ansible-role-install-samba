@@ -9,7 +9,7 @@ galaxy_info:
   github_branch: master
 
   platforms:
-   - name: ubuntu
+   - name: Ubuntu
      versions:
      - bionic
   galaxy_tags:
