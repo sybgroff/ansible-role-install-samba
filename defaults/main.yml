@@ -2,7 +2,9 @@
 # type of installation: source or os
 install_samba_type: "source"
 
+# when install_samba_dc_server is True, creates samba-ad-d service, when it not, create smbd, nmbd, winbind services
 install_samba_dc_server: True
+
 install_samba_version: "samba-4.8.2"
 install_samba_prefix: "/usr/local/samba"
 install_samba_bin: "/usr/bin"
