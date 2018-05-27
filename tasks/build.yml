@@ -1,20 +1,27 @@
 ---
 - name: download samba
   unarchive:
-    src: "https://download.samba.org/pub/samba/stable/{{ samba_version }}.tar.gz"
+    src: "https://download.samba.org/pub/samba/stable/{{ install_samba_version }}.tar.gz"
     dest: "{{ samba_download }}"
     remote_src: yes
 
 - name: configure samba
-  shell: "./configure --prefix={{samba_prefix}} --sbindir={{samba_sbin}} --bindir={{samba_bin}} --sysconfdir={{samba_etc}} --mandir=/usr/share/man --with-systemd"
+  command: > 
+    ./configure 
+    --prefix={{ install_samba_prefix }} 
+    --sbindir={{ install_samba_sbin }} 
+    --bindir={{ install_samba_bin }} 
+    --sysconfdir={{ install_samba_etc }} 
+    --mandir=/usr/share/man 
+    --with-systemd
   args:
-    chdir: "{{ samba_download }}/{{ samba_version }}"
+    chdir: "{{ install_samba_download }}/{{ install_samba_version }}"
 
 - name: make
   make:
-    chdir: "{{ samba_download }}/{{ samba_version }}"
+    chdir: "{{ install_samba_download }}/{{ install_samba_version }}"
 
 - name: make install
   make:
-    chdir: "{{ samba_download }}/{{ samba_version }}"
+    chdir: "{{ install_samba_download }}/{{ install_samba_version }}"
     target: install
