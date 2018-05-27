@@ -4,8 +4,8 @@ After=network.target remote-fs.target nss-lookup.target
 
 [Service]
 Type=forking
-ExecStart={{samba_sbin}}/samba -D
-PIDFile={{samba_prefix}}/var/run/samba.pid
+ExecStart={{install_samba_sbin}}/samba -D
+PIDFile={{install_samba_prefix}}/var/run/samba.pid
 ExecReload=/bin/kill -HUP $MAINPID
 
 [Install]
