@@ -1,7 +1,11 @@
 ---
-samba_version: "samba-4.8.2"
-samba_prefix: "/usr/local/samba"
-samba_bin: "/usr/bin"
-samba_sbin: "/sbin"
-samba_etc: "/etc/samba"
-samba_download: "/opt"
+# type of installation: source or os
+install_samba_type: "source"
+
+install_samba_dc_server: True
+install_samba_version: "samba-4.8.2"
+install_samba_prefix: "/usr/local/samba"
+install_samba_bin: "/usr/bin"
+install_samba_sbin: "/sbin"
+install_samba_etc: "/etc/samba"
+install_samba_download: "/opt"
