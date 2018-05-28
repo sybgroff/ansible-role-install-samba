@@ -1,6 +1,6 @@
 ---
-# type of installation: source or os
-install_samba_type: "source"
+# if build is False, the role will install samba from OS
+install_samba_build: True
 
 # when install_samba_dc_server is True, creates samba-ad-d service, when it not, create smbd, nmbd, winbind services
 install_samba_dc_server: True

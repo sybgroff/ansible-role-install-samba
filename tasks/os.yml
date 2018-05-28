@@ -1,0 +1,35 @@
+---
+- name: Install from OS
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - krb5-config
+    - krb5-user
+    - libnss-winbind
+    - libpam-winbind
+    - winbind
+    - samba
+    - smbclient
+    - ldb-tools
+    - samba-common
+
+- name: Disable smbd nmbd winbind services to DC samba installation
+  systemd:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+    masked: yes
+  when: install_samba_dc_server
+  with_items:
+    - smbd 
+    - nmbd 
+    - winbind
+
+- name: Enable samba-ad-dc service to DC samba installation
+  systemd:
+    name: "samba-ad-dc"
+    state: started
+    enabled: yes
+    masked: no
+  when: install_samba_dc_server

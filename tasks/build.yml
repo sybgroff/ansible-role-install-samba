@@ -2,7 +2,7 @@
 - name: download samba
   unarchive:
     src: "https://download.samba.org/pub/samba/stable/{{ install_samba_version }}.tar.gz"
-    dest: "{{ samba_download }}"
+    dest: "{{ install_samba_download }}"
     remote_src: yes
 
 - name: configure samba

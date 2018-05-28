@@ -4,15 +4,17 @@
   template: 
     src: samba.service
     dest: /etc/systemd/system/samba-ad-dc.service
+  when: install_samba_dc_server
   tags:
     - samba_service
     
-
 - name: enable service samba
   systemd:
     name: samba-ad-dc
     enabled: yes
     state: restarted
     daemon_reload: yes
+  when: install_samba_dc_server
   tags:
     - samba_service
+

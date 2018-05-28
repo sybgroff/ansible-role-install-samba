@@ -3,7 +3,14 @@
   apt:
     update_cache: yes
 
+- import_tasks: os.yml
+  when: not install_samba_build
+
 - import_tasks: dependencies.yml
+  when: install_samba_build
+
 - import_tasks: build.yml
-#- import_tasks: path.yml # no more necessary
+  when: install_samba_build
+
 - import_tasks: service.yml
+  when: install_samba_build
