@@ -29,7 +29,6 @@
 - name: Enable samba-ad-dc service to DC samba installation
   systemd:
     name: "samba-ad-dc"
-    state: started
     enabled: yes
     masked: no
   when: install_samba_dc_server
