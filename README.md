@@ -1,4 +1,4 @@
-Ansible Role: compile-samba
+Ansible Role: install-samba
 ===========================
 
 This role does:
