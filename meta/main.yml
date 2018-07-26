@@ -2,6 +2,7 @@ galaxy_info:
   author: thiagogomesverissimo
   description: build samba from source
   company: USPdev
+  role_name: install_samba
 
   license: "license (BSD, MIT)"
 
