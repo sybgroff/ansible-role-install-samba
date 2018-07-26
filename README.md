@@ -16,4 +16,4 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - uspdev.install-samba
+         - uspdev.install_samba
